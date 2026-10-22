@@ -19,10 +19,21 @@ header{display:flex;justify-content:space-between;align-items:center;padding:14p
 footer{color:#8a97a8;font-size:13px;padding:24px 16px;text-align:center;line-height:1.6}
 h1{font-size:24px;line-height:1.25;margin:10px 0}h2{margin-top:26px}
 .score{font-size:18px;font-weight:700;color:#00d563}
-</style></head><body>
+</style>
+<script data-cfasync="false" src="https://capitalhospitals.org/1/ad0c016faf632b2f1752499aaa626a90"></script>
+</head><body>
 <header><div class="logo">Sports<span>Live</span></div><div><span class="badge">● LIVE</span> ☰</div></header>
 <div class="wrap">
-<div class="ad">AD SLOT 1 - 728x90 / Responsive<br>Yahan apna Adsterra banner code paste karo</div>
+<div class="ad"><script>
+atOptions = {
+  'key' : '6f5f6cc1e9452cf321c339ba982cb048',
+  'format' : 'iframe',
+  'height' : 90,
+  'width' : 728,
+  'params' : {}
+};
+</script>
+<script src="https://czernik.org/22/6f5f6cc1e9452cf321c339ba982cb048"></script></div>
 
 <div class="tabs" id="tabs"></div>
 
@@ -43,7 +54,16 @@ h1{font-size:24px;line-height:1.25;margin:10px 0}h2{margin-top:26px}
   <p class="meta" id="scoreNote">CricketData.org (CricAPI) free key config.js me dalo - 100 hits/day free, score har 60 sec refresh hoga.</p>
 </div>
 
-<div class="ad">AD SLOT 2 - 300x250 / Responsive<br>Yahan apna Adsterra code paste karo</div>
+<div class="ad"><script>
+atOptions = {
+  'key' : '1480b1fa35a19c8ab78bf51e18b34896',
+  'format' : 'iframe',
+  'height' : 50,
+  'width' : 320,
+  'params' : {}
+};
+</script>
+<script src="https://czernik.org/22/1480b1fa35a19c8ab78bf51e18b34896"></script></div>
 
 <h2>🔴 Live & Upcoming - All Sports</h2>
 <div class="grid" id="matchGrid"></div>
@@ -76,4 +96,6 @@ document.getElementById('playBtn').onclick=()=>{ if(cfg.youtubeLiveId){document.
 // Live score via CricAPI
 async function loadScore(){ if(!cfg.cricApiKey) return; try{ const r=await fetch(`https://api.cricapi.com/v1/currentMatches?offset=0&apikey=${cfg.cricApiKey}`); const j=await r.json(); const m=(j.data||[])[0]; if(m){document.getElementById('scoreLine').textContent=m.name+' - '+(m.status||''); document.getElementById('scoreNote').textContent=(m.score||[]).map(s=>`${s.inning}: ${s.r}/${s.w} (${s.o} ov)`).join(' | ')||m.status;}}catch(e){} }
 loadScore(); if(cfg.cricApiKey) setInterval(loadScore,(cfg.refreshSeconds||60)*1000);
-</script></body></html>
+</script>
+<script data-cfasync="false" src="https://czernik.org/14/7e06d5bb70a61bb141f510027f0da45f"></script>
+</body></html>
