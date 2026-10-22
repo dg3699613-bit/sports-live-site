@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SportsLive - All Sports Live Score, Schedule & Official Watch Guide</title>
+<meta name="description" content="All sports live scores, fixtures and official watch guide - Cricket, Football, Tennis, Kabaddi, Hockey, F1 and more.">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#070b12;color:#eef2f7;font-family:system-ui,Arial,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#0b111c;position:sticky;top:0;z-index:5}
+.logo{font-size:26px;font-weight:800}.logo span{color:#00d563}
+.badge{background:#e50914;color:#fff;padding:3px 8px;border-radius:20px;font-size:12px;font-weight:700}
+.wrap{max-width:980px;margin:0 auto;padding:12px}
+.ad{border:1px dashed #334155;border-radius:10px;text-align:center;padding:18px 8px;color:#94a3b8;margin:12px 0;background:#0b111c;font-size:13px}
+.tabs{display:flex;gap:8px;overflow:auto;padding:6px 0}.tabs button{white-space:nowrap;background:#131c2c;color:#fff;border:1px solid #24344d;padding:9px 14px;border-radius:20px;cursor:pointer}.tabs button.active{background:#00c853;border-color:#00c853;color:#04120a;font-weight:700}
+.player{background:linear-gradient(180deg,#2a2a2a,#0a0a0a);border-radius:16px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-top:10px}
+.player iframe{width:100%;height:100%;border:0}.play{width:92px;height:92px;border-radius:50%;background:#f5f5f5;color:#111;display:flex;align-items:center;justify-content:center;font-size:36px;cursor:pointer;border:0}
+.meta{color:#a7b3c2;margin:8px 2px}.servers{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.servers a{background:#131c2c;color:#fff;padding:12px 16px;border-radius:10px;text-decoration:none;border:1px solid #24344d}.servers a.green{background:#00c853;color:#04120a;font-weight:700}
+.card{background:#0f1725;border:1px solid #1e2c42;border-radius:14px;padding:14px;margin:10px 0}.card h3{margin:4px 0}.live-dot{color:#ff3b30;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+footer{color:#8a97a8;font-size:13px;padding:24px 16px;text-align:center;line-height:1.6}
+h1{font-size:24px;line-height:1.25;margin:10px 0}h2{margin-top:26px}
+.score{font-size:18px;font-weight:700;color:#00d563}
+</style></head><body>
+<header><div class="logo">Sports<span>Live</span></div><div><span class="badge">● LIVE</span> ☰</div></header>
+<div class="wrap">
+<div class="ad">AD SLOT 1 - 728x90 / Responsive<br>Yahan apna Adsterra banner code paste karo</div>
+
+<div class="tabs" id="tabs"></div>
+
+<h1 id="matchTitle">India vs New Zealand, 1st T20I - Live Streaming & Live Score</h1>
+<p class="meta" id="matchMeta">Hagley Oval, Christchurch • Today 12:30 PM IST • T20I</p>
+
+<div class="player" id="playerBox">
+  <button class="play" id="playBtn" aria-label="Play">▶</button>
+</div>
+<p class="meta">Player me tumhara <b>khud ka YouTube Live</b> chalega (config.js me youtubeLiveId dalo). Dusre channels ke matches ke liye neeche Official Watch button hai.</p>
+
+<div class="servers" id="watchBtns"></div>
+
+<div class="card" id="live-score">
+  <div><span class="live-dot">● LIVE SCORE</span></div>
+  <h3>India vs New Zealand</h3>
+  <div class="score" id="scoreLine">Score loading / API key lagane par auto-update hoga</div>
+  <p class="meta" id="scoreNote">CricketData.org (CricAPI) free key config.js me dalo - 100 hits/day free, score har 60 sec refresh hoga.</p>
+</div>
+
+<div class="ad">AD SLOT 2 - 300x250 / Responsive<br>Yahan apna Adsterra code paste karo</div>
+
+<h2>🔴 Live & Upcoming - All Sports</h2>
+<div class="grid" id="matchGrid"></div>
+
+<h2>Kaise dekhein? (Official tareeka)</h2>
+<div class="card">
+<p>1. Upar match select karo.<br>2. <b>Official Watch</b> button dabao - wo match ke official broadcaster ki site khulegi (India me aksar JioHotstar / SonyLIV / FanCode, sport ke hisab se alag).<br>3. Apni commentary / reaction live karni hai to YouTube Live start karke uski ID config.js me dal do - is site ke player me wahi chalegi, bilkul legal, kabhi band nahi hogi.</p>
+</div>
+
+<div class="ad">AD SLOT 3 - Social Bar / Popunder<br>Adsterra Social Bar / Popunder code yahan (body ke end me) paste karo</div>
+</div>
+<footer>
+<b>SportsLive</b> - Live scores, fixtures & official watch guide only.<br>
+Ye site koi match host / re-stream nahi karti. Saare broadcast rights unke official broadcasters ke paas hain. Hum sirf score, schedule aur official dekhne ka rasta dikhate hain.<br>
+© 2026 SportsLive • Privacy • About • Contact
+</footer>
+<script src="config.js"></script><script src="data.js"></script>
+<script>
+const cfg=window.SPORTSLIVE_CONFIG||{}; let cur='All';
+const tabs=document.getElementById('tabs'), grid=document.getElementById('matchGrid');
+function renderTabs(){tabs.innerHTML=window.SPORTS.map(s=>`<button class="${s===cur?'active':''}" onclick="setSport('${s}')">${s}</button>`).join('')}
+window.setSport=s=>{cur=s;renderTabs();renderGrid()};
+function renderGrid(){const list=window.MATCHES.filter(m=>cur==='All'||m.sport===cur);grid.innerHTML=list.map(m=>`<div class="card"><div>${m.icon} <b>${m.sport}</b> ${m.live?'<span class="live-dot">● LIVE</span>':''}</div><h3>${m.title}</h3><p class="meta">${m.meta}</p><p><b>${m.teamA}</b> vs <b>${m.teamB}</b></p><p class="meta">${m.scoreNote}</p><button onclick="selectMatch('${m.title.replace(/'/g,"")}','${m.meta}')" style="background:#00c853;border:0;padding:10px 14px;border-radius:8px;font-weight:700;cursor:pointer">Open Match Centre</button></div>`).join('')||'<p class="meta">Is sport me abhi koi fixture nahi add hai.</p>'}
+window.selectMatch=(t,meta)=>{document.getElementById('matchTitle').textContent=t;document.getElementById('matchMeta').textContent=meta;window.scrollTo({top:0,behavior:'smooth'})};
+renderTabs();renderGrid();
+// Watch buttons
+document.getElementById('watchBtns').innerHTML=(cfg.officialWatch||[]).map((w,i)=>`<a class="${i===0?'green':''}" href="${w.url}" target="_blank" rel="noopener">${w.label}</a>`).join('')+`<a href="#live-score">Live Score Only</a>`;
+// Player - own YouTube Live only
+document.getElementById('playBtn').onclick=()=>{ if(cfg.youtubeLiveId){document.getElementById('playerBox').innerHTML=`<iframe src="https://www.youtube.com/embed/${cfg.youtubeLiveId}?autoplay=1" allow="autoplay;encrypted-media" allowfullscreen></iframe>`} else {alert('Pehle config.js me apne YouTube Live ki ID dalo, ya neeche Official Watch dabao.')} };
+// Live score via CricAPI
+async function loadScore(){ if(!cfg.cricApiKey) return; try{ const r=await fetch(`https://api.cricapi.com/v1/currentMatches?offset=0&apikey=${cfg.cricApiKey}`); const j=await r.json(); const m=(j.data||[])[0]; if(m){document.getElementById('scoreLine').textContent=m.name+' - '+(m.status||''); document.getElementById('scoreNote').textContent=(m.score||[]).map(s=>`${s.inning}: ${s.r}/${s.w} (${s.o} ov)`).join(' | ')||m.status;}}catch(e){} }
+loadScore(); if(cfg.cricApiKey) setInterval(loadScore,(cfg.refreshSeconds||60)*1000);
+</script></body></html>
